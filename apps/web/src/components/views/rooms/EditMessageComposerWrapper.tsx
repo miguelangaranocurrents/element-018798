@@ -89,10 +89,12 @@ export function EditMessageComposerWrapper(props: IEditMessageComposerProps): JS
         />
     );
 
+    // Render the preview and the editor as siblings: an extra wrapper element here would become
+    // the event tile's body-slot child and its overflow would clip the composer's autocomplete.
     return (
-        <div>
+        <>
             <MessageComposerUrlPreviewWrapper urlPreviewVm={vm} />
             {editor}
-        </div>
+        </>
     );
 }
